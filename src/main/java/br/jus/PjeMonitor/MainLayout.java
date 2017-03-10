@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author Thomas Darimont
  */
-@Component
+
 public class MainLayout extends GridPane {
 
 	private final HelloWorldComponent helloWorldComponent;

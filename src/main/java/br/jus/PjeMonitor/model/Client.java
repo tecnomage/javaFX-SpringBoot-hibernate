@@ -77,4 +77,14 @@ public class Client implements Serializable {
 		return super.hashCode();
 	}
 
+	@Override
+	public String toString() {
+	
+		return "esse cliente tem " + this.getTombo() + this.getVara();
+		
+	}
+
+	
+	
+	
 }

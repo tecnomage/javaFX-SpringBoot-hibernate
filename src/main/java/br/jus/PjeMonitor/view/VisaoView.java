@@ -1,4 +1,4 @@
-package br.jus.PjeMonitor;
+package br.jus.PjeMonitor.view;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -8,9 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-//import br.jus.PjeMonitor.dao.ClienteRepo;
-//import br.jus.PjeMonitor.view.MainView;
-import br.jus.PjeMonitor.view.MonitorPjeControllerOld;
+import br.jus.PjeMonitor.App;
 import de.felixroske.jfxsupport.AbstractFxmlView;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import de.felixroske.jfxsupport.FXMLView;
@@ -31,7 +29,7 @@ import javafx.stage.Stage;
  * @EnableAutoConfiguration
  */
 
-@FXMLView(value = "view/visao.fxml")
+@FXMLView(value = "visao.fxml")
 public class VisaoView extends AbstractFxmlView {
 
 	private Stage primaryStage;
@@ -40,23 +38,22 @@ public class VisaoView extends AbstractFxmlView {
 	
 
 	public VisaoView() {
-
-	}
+			
+		}
 
 	
-
 	private void showTableAudiencia() {
 		try {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(VisaoView.class.getResource("view/visao.fxml"));
+			loader.setLocation(VisaoView.class.getResource("visao.fxml"));
 			AnchorPane TableOverview = (AnchorPane) loader.load();
 
 			// Set person overview into the center of root layout.
 			rootLayout.setCenter(TableOverview);
 
 			// Give the controller acckess to the main app.
-			// MonitorPjeController controller = loader.getController();
+			 MonitorPjeController controller = loader.getController();
 			// controller.setMainApp();
 			System.out.println("carregou main app");
 
@@ -66,19 +63,19 @@ public class VisaoView extends AbstractFxmlView {
 
 	}
 
+	//FIXME nao carrega o rootLayout
 	private void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("view/RootLayout.fxml"));
+			loader.setLocation(VisaoView.class.getResource("RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
-			MonitorPjeControllerOld controller = loader.getController();
+			MonitorPjeController controller = loader.getController();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
 
 	public void showCadastroClients() {
 
@@ -105,4 +102,8 @@ public class VisaoView extends AbstractFxmlView {
 		return primaryStage;
 	}
 
+
+	
+	
+	
 }

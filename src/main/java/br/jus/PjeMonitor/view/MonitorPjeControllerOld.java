@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.jus.PjeMonitor.App;
-import br.jus.PjeMonitor.VisaoView;
 import br.jus.PjeMonitor.model.Audiencia;
 import br.jus.PjeMonitor.model.Client;
 import de.felixroske.jfxsupport.FXMLController;
@@ -49,13 +48,10 @@ public class MonitorPjeControllerOld {
 	// referencia a aplicacao principal
 	private App app;
 
-	//FIXME
-//	@Autowired
-//	ClientRepo clientRepo;
-	
-	
+	// @Autowired
+	// ClientRepo clientRepo;
 
-		public MonitorPjeControllerOld() {
+	public MonitorPjeControllerOld() {
 
 	}
 
@@ -128,12 +124,12 @@ public class MonitorPjeControllerOld {
 
 	}
 
-//	public void setMainApp(MainApp mainApp) {
-//		this.mainapp = mainApp;
-//
-//		audTable.setItems(mainApp.getAudData());
-//
-//	}
+	// public void setMainApp(MainApp mainApp) {
+	// this.mainapp = mainApp;
+	//
+	// audTable.setItems(mainApp.getAudData());
+	//
+	// }
 
 	/*
 	 * TODO nesse método deve ser buscado uma entidade Client para editar os
@@ -146,12 +142,10 @@ public class MonitorPjeControllerOld {
 	 * }
 	 */
 
-	// FIXME nao salva
 	// TODO em caso de erro enviar msg de erro
 	@FXML
 	public void mouseEvent() {
 		Client client = new Client(1, "cta 12344", "18 vt");
-		
 
 	}
 
@@ -163,12 +157,11 @@ public class MonitorPjeControllerOld {
 		this.myClientComboBoxData = myClientComboBoxData;
 	}
 
-//	public void setMainApp(MainApp mainApp) {
-//		this.app = mainApp;
-//
-//		audTable.setItems(mainApp.getAudData());
-//
-//	}
-	
-	
+	// public void setMainApp(MainApp mainApp) {
+	// this.app = mainApp;
+	//
+	// audTable.setItems(mainApp.getAudData());
+	//
+	// }
+
 }

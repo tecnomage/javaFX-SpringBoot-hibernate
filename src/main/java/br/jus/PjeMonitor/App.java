@@ -15,15 +15,11 @@
  */
 package br.jus.PjeMonitor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.jus.PjeMonitor.view.VisaoView;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
-import javafx.application.Preloader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 /**
  * @author Thomas Darimont
@@ -34,7 +30,7 @@ public class App extends AbstractJavaFxApplicationSupport {
 	/**
 	 * Note that this is configured in application.properties
 	 */
-	@Value("${app.ui.title:PJe Midia Monitor}")//
+	@Value("${app.ui.title:PJe Midia Monitor}")
 	private String windowTitle;
 
 	

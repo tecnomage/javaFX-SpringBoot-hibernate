@@ -1,9 +1,12 @@
 package br.jus.PjeMonitor.view;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.jus.PjeMonitor.App;
 import br.jus.PjeMonitor.dao.ClienteRepo;
 import br.jus.PjeMonitor.model.Audiencia;
 import br.jus.PjeMonitor.model.Client;
@@ -37,10 +40,16 @@ public class MonitorPjeController {
 	private ComboBox<Client> clientcomboBox;
 
 	@FXML
-	private Button BtnListaId = new Button();
+	private Button BtnListaAuds = new Button();
 
 	@FXML
 	private Button BtnListarMaq;
+
+	@FXML
+	private Button BtnListaVara;
+
+	@FXML
+	private Button BtnInserirVara;
 
 	@FXML
 	private ObservableList<Client> myClientComboBoxData = FXCollections.observableArrayList();
@@ -56,13 +65,18 @@ public class MonitorPjeController {
 
 		populaTabela();
 
-		Client client = new Client("teste123", "21 vt");
-
 		// sets the combobox options
-		myClientComboBoxData.add(client);
-		myClientComboBoxData.add(new Client("cta122223", "10 vt"));
-		myClientComboBoxData.add(new Client("cta122223", "17 vt"));
-		myClientComboBoxData.add(new Client("cta120337", "18 vt"));
+		List<Client> maqClientes = new ArrayList<>();
+		maqClientes.addAll(clienteRepo.findAllClients());
+
+		List<Client> clientes = new ArrayList<>();
+
+		Client cliente = new Client("123", "tenso");
+
+		clientes.add(new Client("asdad", "tenso"));
+		clientes.add(new Client("cta123", "18vt"));
+
+		myClientComboBoxData.addAll(maqClientes);
 
 		clientcomboBox.setItems(myClientComboBoxData);
 
@@ -101,8 +115,8 @@ public class MonitorPjeController {
 
 	}
 
-	
 	public void populaTabela() {
+		
 		audData.add(new Audiencia("12123123213213", LocalDate.now(), "sim"));
 		audData.add(new Audiencia("22222222222222", LocalDate.now(), "nao"));
 		audData.add(new Audiencia("22222222222222", LocalDate.now(), "nao"));
@@ -113,12 +127,17 @@ public class MonitorPjeController {
 		audData.add(new Audiencia("99999999999999", LocalDate.now(), "nao"));
 		audData.add(new Audiencia("100010110101001", LocalDate.now(), "nao"));
 
-		
 		audTable.setItems(getAudData());
-		
+
 		audId.setCellValueFactory(cellData -> cellData.getValue().processoProperty());
 		dataId.setCellValueFactory(cellData -> cellData.getValue().dataProperty());
 		assId.setCellValueFactory(cellData -> cellData.getValue().assinadoProperty());
+	}
+
+	public void carregaMaquinas() {
+		// TODO carrega as maquinas que tem audiencias
+		System.out.println("nao implementado ainda");
+
 	}
 
 	public ObservableList<Audiencia> getAudData() {
