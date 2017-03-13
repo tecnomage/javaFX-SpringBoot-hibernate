@@ -1,22 +1,15 @@
 package br.jus.PjeMonitor.Util;
 
-
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isEmptyOrNullString;
-import static org.junit.Assert.assertEquals;
-
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Matchers.isNotNull;
+import static org.hamcrest.MatcherAssert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.util.Lists;
-import org.hamcrest.core.IsNot;
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class DirectoryUtilTest {
 
@@ -26,16 +19,21 @@ public class DirectoryUtilTest {
 	}
 
 	@Test
- 	public void TestaSeListagemNaoRetornaNulo() {
+	public void TestaSeListagemNaoRetornaNulo() {
 		List<String> lista = new ArrayList<>();
-		
-		DirectoryUtilBuilder dirBuilder = new DirectoryUtilBuilder("CTA146063");
-		DirectoryUtil directoryUtil = dirBuilder.criaDirectoryUtilBuilder();
-		
-		lista.addAll(directoryUtil.ListaDiretórios());
-		
-		assertThat(lista, is(equals("teste")));
-		
-			}
 
+		lista.addAll(DirectoryUtil.ListaDiretórios("CTA146063"));
+
+		assertThat(lista, not(empty()));
+	}
+
+
+
+	@Test
+	public void DeveSepararDiretorioEmClientes() {
+		
+	}
+	
 }
+
+

@@ -115,6 +115,7 @@ public class MonitorPjeController {
 
 	}
 
+	//TODO inserir as audiências
 	public void populaTabela() {
 		
 		audData.add(new Audiencia("12123123213213", LocalDate.now(), "sim"));
@@ -148,4 +149,6 @@ public class MonitorPjeController {
 		this.audData = audData;
 	}
 
+	
+	
 }

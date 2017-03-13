@@ -12,6 +12,7 @@ public class Audiencia {
 	private final StringProperty processo;
 	private final ObjectProperty<LocalDate> data;
 	private final StringProperty assinado;
+	
 
 	public Audiencia(String processo, LocalDate date, String assinado) {
 

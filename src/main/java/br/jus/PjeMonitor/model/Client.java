@@ -1,14 +1,13 @@
 package br.jus.PjeMonitor.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.data.repository.RepositoryDefinition;
 
 /*@
  * classe que lista as máquinas 
@@ -30,6 +29,7 @@ public class Client implements Serializable {
 
 	@Column
 	private String vara;
+	
 	
 	public Client() {
 		
@@ -70,6 +70,12 @@ public class Client implements Serializable {
 	public void setVara(String vara) {
 		this.vara = vara;
 	}
+	
+	//TODO retornar listagem de audiencia
+	public List<Audiencia> getAudiencias(){
+		return null;
+	}
+	
 
 	@Override
 	public int hashCode() {
